@@ -1,0 +1,16 @@
+PODS:
+  - LCRExtensionSwift (0.1.0)
+
+DEPENDENCIES:
+  - LCRExtensionSwift (from `../`)
+
+EXTERNAL SOURCES:
+  LCRExtensionSwift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LCRExtensionSwift: c2bdddea65804fbdf338388bea883c303ea29783
+
+PODFILE CHECKSUM: 875f69a884ebe7210a32a3db027532fbb59d6e4e
+
+COCOAPODS: 1.9.2
