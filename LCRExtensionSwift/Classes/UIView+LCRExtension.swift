@@ -120,7 +120,7 @@ extension UIView {
     }
     
     /// 删除所有的子视图
-    func lcr_removeAllSubView() -> Void {
+    public func lcr_removeAllSubView() -> Void {
         for view : UIView in self.subviews{
             view.removeFromSuperview();
         }
@@ -135,7 +135,7 @@ extension UIView {
     }
     
     //设置边框
-    func lcr_setBoardWithColor(color:UIColor,top:Bool,right:Bool,bottom:Bool,left:Bool,width:CGFloat) -> Void {
+    public func lcr_setBoardWithColor(color:UIColor,top:Bool,right:Bool,bottom:Bool,left:Bool,width:CGFloat) -> Void {
         if top == true {
             let layer:CALayer = CALayer();
             layer.frame = CGRect(x: 0, y: 0, width: self.lcr_width, height: width);
@@ -166,7 +166,7 @@ extension UIView {
     /// - Parameter bounds: 控件bounds
     /// - Parameter corners: 原始位置
     /// - Parameter radiu: 圆角大小
-    func lcr_radiusWithRadius(_ radius:CGFloat,corners:UIRectCorner) -> Void {
+    public func lcr_radiusWithRadius(_ radius:CGFloat,corners:UIRectCorner) -> Void {
         
         if #available(iOS 11.0, *) { // ios11 以上偏移
             layer.cornerRadius = radius
@@ -181,7 +181,7 @@ extension UIView {
         }
     }
     
-    func lcr_addShadowLayer(_ color:UIColor,
+    public func lcr_addShadowLayer(_ color:UIColor,
                         offset:CGSize,
                         radius:CGFloat,
                         opacity:CGFloat) {

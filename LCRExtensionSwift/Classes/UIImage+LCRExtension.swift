@@ -41,7 +41,7 @@ extension UIImage {
     /// - Parameters:
     ///   - images: 资源链接集合
     ///   - completion: 处理结果回调
-    static func lcr_picturesToComposites(_ images:[String],completion:((UIImage?)->())?) {
+    public static func lcr_picturesToComposites(_ images:[String],completion:((UIImage?)->())?) {
         /// 数组数量为0时，直接返回
         if images.count == 0 {
             return (completion?(nil))!
@@ -156,7 +156,7 @@ extension UIImage {
 //MARK: - 二维码
 extension UIImage {
     
-   static func lcr_logolOrQRImage(_ QRTargetString:String,image:UIImage?) -> UIImage {
+    public static func lcr_logolOrQRImage(_ QRTargetString:String,image:UIImage?) -> UIImage {
         
         //创建滤镜
         let filter = CIFilter(name: "CIQRCodeGenerator")
@@ -185,7 +185,7 @@ extension UIImage {
     }
     
     //MARK: - 生成高清的UIImage
-   static func lcr_setupHighDefinitionUIImage(_ image: CIImage, size: CGFloat) -> UIImage {
+    public static func lcr_setupHighDefinitionUIImage(_ image: CIImage, size: CGFloat) -> UIImage {
         let integral: CGRect = image.extent.integral
         let proportion: CGFloat = min(size/integral.width, size/integral.height)
         
@@ -205,7 +205,7 @@ extension UIImage {
     }
     
     //image: 二维码 iconImage:头像图片 width: 头像的宽 height: 头像的宽
-  static func lcr_syntheticImage(_ image: UIImage, iconImage:UIImage, width: CGFloat, height: CGFloat) -> UIImage{
+    public static func lcr_syntheticImage(_ image: UIImage, iconImage:UIImage, width: CGFloat, height: CGFloat) -> UIImage{
         //开启图片上下文
         UIGraphicsBeginImageContext(image.size)
         //绘制背景图片
@@ -226,7 +226,7 @@ extension UIImage {
     }
     
     //生成边框
-   static func lcr_circleImageWithImage(_ sourceImage: UIImage, borderWidth: CGFloat, borderColor: UIColor) -> UIImage {
+    public static func lcr_circleImageWithImage(_ sourceImage: UIImage, borderWidth: CGFloat, borderColor: UIColor) -> UIImage {
         let imageWidth = sourceImage.size.width + 2 * borderWidth
         let imageHeight = sourceImage.size.height + 2 * borderWidth
         
@@ -255,7 +255,7 @@ extension UIImage{
     ///
     /// - Parameter view: 展示的view
     /// - Returns: 图片大小
-    func lcr_getImageSize(view:UIView) -> CGSize {
+    public func lcr_getImageSize(view:UIView) -> CGSize {
         var size = CGSize.zero
         
         let sw = view.bounds.size.width

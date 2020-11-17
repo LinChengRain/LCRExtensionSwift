@@ -11,7 +11,7 @@ import UIKit
 extension CAGradientLayer {
     
     //获取渐变层
-    func lcr_rainbowLayer(_ colors:[CGColor],_ startPoint:CGPoint ,_ endPoint:CGPoint) -> CAGradientLayer {
+   public func lcr_rainbowLayer(_ colors:[CGColor],_ startPoint:CGPoint ,_ endPoint:CGPoint) -> CAGradientLayer {
         //定义渐变的颜色（7种彩虹色）
         let gradientColors = colors
         

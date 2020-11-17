@@ -7,12 +7,21 @@
 //
 
 import UIKit
-
+import LCRExtensionSwift
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //格式化
+        let format = String.lcr_countNumChangeformat(str: "13456661312312")
+         
+        //打印结果
+        print("格式化结果 = \(format)")
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

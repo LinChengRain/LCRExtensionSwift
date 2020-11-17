@@ -12,7 +12,7 @@ private let radarAnimation = "radarAnimation"
 
 extension CALayer {
     /// 雷达动画
-    static func lcr_makeRadarAnimation(showRect: CGRect, isRound: Bool) -> CALayer {
+    public static func lcr_makeRadarAnimation(showRect: CGRect, isRound: Bool) -> CALayer {
         // 1. 一个动态波
         let shapeLayer = CAShapeLayer()
         shapeLayer.frame = showRect

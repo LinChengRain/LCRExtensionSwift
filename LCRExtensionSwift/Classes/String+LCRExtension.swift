@@ -13,27 +13,27 @@ extension String {
     /*
      *去掉首尾空格
      */
-    var removeHeadAndTailSpace:String {
+    public var removeHeadAndTailSpace:String {
         let whitespace = NSCharacterSet.whitespaces
         return self.trimmingCharacters(in: whitespace)
     }
     /*
      *去掉首尾空格 包括后面的换行 \n
      */
-    var removeHeadAndTailSpacePro:String {
+    public var removeHeadAndTailSpacePro:String {
         let whitespace = NSCharacterSet.whitespacesAndNewlines
         return self.trimmingCharacters(in: whitespace)
     }
     /*
      *去掉所有空格
      */
-    var removeAllSapce: String {
+    public var removeAllSapce: String {
         return self.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
     }
     /*
      *去掉首尾空格 后 指定开头空格数
      */
-    func beginSpaceNum(num: Int) -> String {
+    public func beginSpaceNum(num: Int) -> String {
         var beginSpace = ""
         for _ in 0..<num {
             beginSpace += " "
@@ -41,18 +41,16 @@ extension String {
         return beginSpace + self.removeHeadAndTailSpacePro
     }
     
-    
     /// 字符URL格式化,中文路径encoding
     ///
     /// - Returns: 格式化的 url
-    func stringEncoding() -> String {
+    public  func stringEncoding() -> String {
         let url = self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
         return url!
     }
     
     //1, 截取规定下标之后的字符串
-    
-    func subStringFrom(index: Int)-> String {
+    public func subStringFrom(index: Int)-> String {
         
         let temporaryString: String = self
         
@@ -63,7 +61,7 @@ extension String {
     }
     
     //2, 截取规定下标之前的字符串
-    func subStringTo(index: Int) -> String {
+    public func subStringTo(index: Int) -> String {
         let temporaryString = self
         let temporaryIndex = temporaryString.index(temporaryString.startIndex, offsetBy: index)
         return String(temporaryString[...temporaryIndex])
@@ -73,7 +71,7 @@ extension String {
     /// 替换手机号中间四位
     ///
     /// - Returns: 替换后的值
-    func replacePhone() -> String {
+    public func replacePhone() -> String {
         let start = self.index(self.startIndex, offsetBy: 3)
         let end = self.index(self.startIndex, offsetBy: 7)
         let range = Range(uncheckedBounds: (lower: start, upper: end))
@@ -84,7 +82,7 @@ extension String {
     /// - Parameters:
     ///   - text: 文本
     /// - Returns: 内容
-    func changeParagraphStyle( _ headIndent:CGFloat = 0,
+    public func changeParagraphStyle( _ headIndent:CGFloat = 0,
                                _ tailIndent:CGFloat = 0,
                                _ firstLineHeadIndent:CGFloat = 0) -> NSMutableAttributedString {
         
@@ -140,47 +138,47 @@ extension String{
     /**
      将当前字符串拼接到cache目录后面
      */
-    func cacheDir() -> String{
+    public func cacheDir() -> String{
         let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
         return (path as NSString).appendingPathComponent((self as NSString).lastPathComponent)
     }
     /**
      将当前字符串拼接到doc目录后面
      */
-    func docDir() -> String{
+    public func docDir() -> String{
         let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
         return (path as NSString).appendingPathComponent((self as NSString).lastPathComponent)
     }
     /**
      将当前字符串拼接到tmp目录后面
      */
-    func tmpDir() -> String{
+    public func tmpDir() -> String{
         let path = NSTemporaryDirectory() as NSString
         return path.appendingPathComponent((self as NSString).lastPathComponent)
     }
 }
 // 给String添加各种类型转换.
 extension String {
-    var length: Int {
+    public var length: Int {
         ///更改成其他的影响含有emoji协议的签名
         return self.utf16.count
     }
-    var doubleValue: Double {
+    public var doubleValue: Double {
         return (self as NSString).doubleValue
     }
-    var intValue: Int32 {
+    public var intValue: Int32 {
         return (self as NSString).intValue
     }
-    var floatValue: Float {
+    public var floatValue: Float {
         return (self as NSString).floatValue
     }
-    var integerValue: Int {
+    public var integerValue: Int {
         return (self as NSString).integerValue
     }
-    var longLongValue: Int64 {
+    public var longLongValue: Int64 {
         return (self as NSString).longLongValue
     }
-    var boolValue: Bool {
+    public var boolValue: Bool {
         return (self as NSString).boolValue
     }
 }
@@ -189,7 +187,7 @@ extension String {
 extension String {
     
     /// 获取当前时间
-    static func getCurrentTime() -> String? {
+    public static func getCurrentTime() -> String? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let timeZone = NSTimeZone(name: "Asia/Beijing")
@@ -202,7 +200,7 @@ extension String {
     /// 获取指定时间间隔
     /// - Parameter aDate: 当前时间
     /// - Parameter timeSpace: 时间间隔
-    static func getAppointedDay(_ aDate: Date? = Date(),timeSpace:Int = 1) -> String? {
+    public static func getAppointedDay(_ aDate: Date? = Date(),timeSpace:Int = 1) -> String? {
         let gregorian = Calendar(identifier: .gregorian)
         var components: DateComponents? = nil
         if let aDate = aDate {
@@ -225,7 +223,7 @@ extension String {
     /// 获取指定时间起始时间
     /// - Parameter aDate: 当前时间
     /// - Parameter timeSpace: 时间间隔
-    static func getMorningDate(_ aDate: Date? = Date(),timeSpace:Int = 1) -> String? {
+    public static func getMorningDate(_ aDate: Date? = Date(),timeSpace:Int = 1) -> String? {
         let gregorian = Calendar(identifier: .gregorian)
         var components: DateComponents? = nil
         if let aDate = aDate {
@@ -244,13 +242,14 @@ extension String {
         }
         return nil
     }
+    
     /// 日期字符串转化为Date类型
     ///
     /// - Parameters:
     ///   dateString: 日期字符串
     ///   dateFormat: 格式化样式，默认为“yyyy-MM-dd HH:mm:ss”
     /// - Returns: Date类型
-    static func dateFromString(_ dateString:String,dateFormat:String = "yyyy-MM-dd HH:mm:ss") -> Date {
+    public static func dateFromString(_ dateString:String,dateFormat:String = "yyyy-MM-dd HH:mm:ss") -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale.current
         dateFormatter.timeZone = NSTimeZone.local
@@ -259,14 +258,13 @@ extension String {
         return destDate!
     }
     
-    
     /// Date类型转化为日期字符串
     ///
     /// - Parameters:
     ///   date: Date类型
     ///   dateFormat: 格式化样式默认“yyyy-MM-dd”
     /// - Returns: 日期字符串
-    static func dateToString(_ date:Date, dateFormat:String="yyyy-MM-dd HH:mm:ss") -> String {
+    public static func dateToString(_ date:Date, dateFormat:String="yyyy-MM-dd HH:mm:ss") -> String {
         let timeZone = TimeZone.init(identifier: "UTC")
         let formatter = DateFormatter()
         formatter.timeZone = timeZone
@@ -279,7 +277,7 @@ extension String {
     
     /// 指定时间距离当前时间秒数（指定时间在当前时间之后）
     /// - Parameter startDate: 结束时间
-    static func compareNowDateToEndDate(forSecound endDate: String) -> String? {
+    public static func compareNowDateToEndDate(forSecound endDate: String) -> String? {
         let nowDateStr = self.getCurrentTime()
         let startDate = self.dateFromString(nowDateStr!, dateFormat: "yyyy-MM-dd HH:mm:ss")
         let toDate = self.dateFromString(endDate, dateFormat: "yyyy-MM-dd HH:mm:ss")
@@ -290,10 +288,9 @@ extension String {
         return String(format: "%ld", delta.second ?? 0)
     }
     
-    
     /// 指定时间距离当前时间秒数（指定时间在当前时间之前）
     /// - Parameter startDate: 开始时间
-    static func compareNowDateToStartDate(forSecound startDate: String) -> String? {
+    public static func compareNowDateToStartDate(forSecound startDate: String) -> String? {
         let nowDateStr = self.getCurrentTime()
         let endDate = self.dateFromString(nowDateStr!, dateFormat: "yyyy-MM-dd HH:mm:ss")
         let fromDate = self.dateFromString(startDate, dateFormat: "yyyy-MM-dd HH:mm:ss")
@@ -306,7 +303,7 @@ extension String {
     
     /// 字符串转时间戳
     /// - Parameter stringTime: 字符串时间戳
-    static func stringToTimeStamp(stringTime:String)->String {
+    public static func stringToTimeStamp(stringTime:String)->String {
 
         let dateday = DateFormatter()
         dateday.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -321,7 +318,7 @@ extension String {
     
     /// 时间转换
     /// - Parameter timeStamp: 时间戳字符串
-    static func compareCurrntTime(timeStamp:String) ->String{
+    public static func compareCurrntTime(timeStamp:String) ->String{
         
         //计算出时间戳距离现在时间的一个秒数(..s)
         let interval:TimeInterval=TimeInterval.init(timeStamp)!
@@ -361,7 +358,7 @@ extension String {
     
     /// 时间转换
     /// - Parameter timeStamp: 时间戳字符串
-    static func dateStyleTransform(dateString:String?) ->String{
+    public static func dateStyleTransform(dateString:String?) ->String{
         
         guard let str = dateString else { return "" }
         
@@ -378,7 +375,7 @@ extension String {
     /// 日期转换
     /// - Parameter dateStr: “yyyy-mm-dd hh:mm:ss”
     /// - Parameter format: 格式
-    static func dateTransform(dateString:String?,format:String?) ->String{
+    public static func dateTransform(dateString:String?,format:String?) ->String{
         
         guard let str = dateString else { return "" }
         let formatter = DateFormatter()
@@ -399,7 +396,7 @@ extension String {
     
     /// 根据卡号判断银行
     /// - Parameter cardName: 银行卡code
-    static func returnBankName(_ cardName: String?) -> String? {
+    public static func returnBankName(_ cardName: String?) -> String? {
         let filePath = Bundle.main.path(forResource: "bank", ofType: "plist")
         let resultDic = NSDictionary(contentsOfFile: filePath ?? "") as? Dictionary<String,String>
         let bankBin = resultDic?.keys
@@ -431,7 +428,7 @@ extension String {
     
     //MARK: - 非中文或英文
     /// 非中文或英文
-    static func isIncludeSpecialCharacters(in string: String) -> Bool {
+    public static func isIncludeSpecialCharacters(in string: String) -> Bool {
         let pattern = "[^A-Za-z\\u4E00-\\u9FA5\\d]"
         let expression = try! NSRegularExpression(pattern: pattern, options: .allowCommentsAndWhitespace)
         let numberOfCharacters = expression.numberOfMatches(in: string, options: .reportProgress, range: NSMakeRange(0, (string as NSString).length))
@@ -440,7 +437,7 @@ extension String {
     }
     
     //MARK:- 正则匹配用户密码6-18位数字和字母组合
-    static func checkPassword(password:NSString) ->Bool {
+    public static func checkPassword(password:NSString) ->Bool {
         let pattern = "^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,18}"
         let pred = NSPredicate(format: "SELF MATCHES %@", pattern)
         let isMatch:Bool = pred.evaluate(with: password)
@@ -448,7 +445,7 @@ extension String {
     }
     
     //MARK:- 正则匹配用户姓名,20位的中文或英文
-    static func checkUserName(userName:NSString) ->Bool {
+    public static func checkUserName(userName:NSString) ->Bool {
         let pattern = "^[a-zA-Z\\u4E00-\\u9FA5]{1,20}"
         let pred = NSPredicate(format: "SELF MATCHES %@", pattern)
         let isMatch:Bool = pred.evaluate(with: userName)
@@ -456,13 +453,13 @@ extension String {
     }
     
     //MARK: - 浮点形判断(整形/浮点型等数字均会返回YES,其他为no):
-   static func isPurnFloat(string: String) -> Bool {
+    public static func isPurnFloat(string: String) -> Bool {
         let scan: Scanner = Scanner(string: string)
         var val:Float = 0
         return scan.scanFloat(&val) && scan.isAtEnd
     }
     //MARK: - 是否是整数
-   static func isPurnInt(string: String) -> Bool {
+    public static func isPurnInt(string: String) -> Bool {
         let scan: Scanner = Scanner(string: string)
         var val:Int = 0
         return scan.scanInt(&val) && scan.isAtEnd
@@ -523,6 +520,51 @@ extension String {
         let regex = try!NSRegularExpression.init(pattern: "[^\\u0020-\\u007E\\u00A0-\\u00BE\\u2E80-\\uA4CF\\uF900-\\uFAFF\\uFE30-\\uFE4F\\uFF00-\\uFFEF\\u0080-\\u009F\\u2000-\\u201f\r\n]", options: .caseInsensitive)
         let modifiedString = regex.stringByReplacingMatches(in: str, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSRange.init(location: 0, length: str.count), withTemplate: "")
         return modifiedString
+    }
+    
+    /// 将中文字符串转换为拼音
+    ///
+    /// - Parameter hasBlank: 是否带空格（默认不带空格）
+    public func lcr_transformToPinyin( hasBlank: Bool = false) -> String {
+        
+        let stringRef = NSMutableString(string: self) as CFMutableString
+        CFStringTransform(stringRef,nil, kCFStringTransformToLatin, false) // 转换为带音标的拼音
+        CFStringTransform(stringRef, nil, kCFStringTransformStripCombiningMarks, false) // 去掉音标
+        let pinyin = stringRef as String
+        return hasBlank ? pinyin : pinyin.replacingOccurrences(of: " ", with: "")
+    }
+    
+    /// 获取中文首字母
+    ///
+    /// - Parameter lowercased: 是否小写（默认大写）
+    public func lcr_transformToPinyinHead(str:String, lowercased: Bool = false) -> String {
+        let strPinYin = str.lcr_transformToPinyin(hasBlank: true).capitalized // 字符串转换为首字母大写
+        // 截取大写首字母
+        let firstString = strPinYin.substring(to: strPinYin.index(strPinYin.startIndex, offsetBy:1))
+        // 判断姓名首位是否为大写字母
+        let regexA = "^[A-Z]$"
+        let predA = NSPredicate.init(format: "SELF MATCHES %@", regexA)
+        return predA.evaluate(with: firstString) ? firstString : "#"
+    }
+    
+    
+    /// 数字 千分位显示
+    /// - Parameter str: 需要修改的数据
+    /// - Returns: "111,111,111"
+    public static func lcr_countNumChangeformat(str:String) -> String {
+        /// 是否是整数
+        if !String.isPurnInt(string: str) {
+           return str
+        }
+        
+        //原始值
+        let number = NSNumber(value: Int64(str)!)
+        //创建一个NumberFormatter对象
+        let numberFormatter = NumberFormatter()
+        numberFormatter.positiveFormat = "###,###" //设置格式
+        //格式化
+        let format = numberFormatter.string(from: number)
+        return format ?? str
     }
 }
 

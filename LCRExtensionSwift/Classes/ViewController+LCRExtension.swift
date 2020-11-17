@@ -284,7 +284,7 @@ public extension PropertyStoring {
 
 extension UIViewController {
     
-    static func topViewController(_ viewController: UIViewController? = nil) -> UIViewController? {
+    public static func topViewController(_ viewController: UIViewController? = nil) -> UIViewController? {
         let viewController = viewController ?? UIApplication.shared.keyWindow?.rootViewController
         
         if let navigationController = viewController as? UINavigationController,
@@ -304,7 +304,7 @@ extension UIViewController {
     }
     // MARK: - 查找顶层控制器、
     // 获取顶层控制器 根据window
-    func getTopVC() -> (UIViewController?) {
+    public func getTopVC() -> (UIViewController?) {
         var window = UIApplication.shared.keyWindow
         //是否为当前显示的window
         if window?.windowLevel != UIWindow.Level.normal{

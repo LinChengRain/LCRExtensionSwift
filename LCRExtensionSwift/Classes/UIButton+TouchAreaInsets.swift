@@ -8,14 +8,14 @@
 
 import UIKit
 
-private var ts_touchAreaEdgeInsets: UIEdgeInsets = .zero
+private var lcr_touchAreaEdgeInsets: UIEdgeInsets = .zero
 
 extension UIButton {
     /// Increase your button touch area.
     /// If your button frame is (0,0,40,40). Then call button.ts_touchInsets = UIEdgeInsetsMake(-30, -30, -30, -30), it will Increase the touch area
     public var touchAreaInsets: UIEdgeInsets {
         get {
-            if let value = objc_getAssociatedObject(self, &ts_touchAreaEdgeInsets) as? NSValue {
+            if let value = objc_getAssociatedObject(self, &lcr_touchAreaEdgeInsets) as? NSValue {
                 var edgeInsets: UIEdgeInsets = .zero
                 value.getValue(&edgeInsets)
                 return edgeInsets
@@ -28,7 +28,7 @@ extension UIButton {
             var newValueCopy = newValue
             let objCType = NSValue(uiEdgeInsets: .zero).objCType
             let value = NSValue(&newValueCopy, withObjCType: objCType)
-            objc_setAssociatedObject(self, &ts_touchAreaEdgeInsets, value, .OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &lcr_touchAreaEdgeInsets, value, .OBJC_ASSOCIATION_RETAIN)
         }
     }
     
