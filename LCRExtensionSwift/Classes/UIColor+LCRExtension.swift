@@ -17,7 +17,7 @@ extension UIColor {
      
      - returns: UIColor
      */
-    convenience init(lcr_hexString hexString: String, alpha: Double = 1.0) {
+    public convenience init(lcr_hexString hexString: String, alpha: Double = 1.0) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
         Scanner(string: hex).scanHexInt32(&int)
@@ -42,7 +42,7 @@ extension UIColor {
      
      - returns: UIColor
      */
-    convenience init(lcr_red red: Int, green: Int, blue: Int) {
+    public convenience init(lcr_red red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
