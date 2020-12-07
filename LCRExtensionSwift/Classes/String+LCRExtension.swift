@@ -551,17 +551,17 @@ extension String {
     /// 数字 千分位显示
     /// - Parameter str: 需要修改的数据
     /// - Returns: "111,111,111"
-    public static func lcr_countNumChangeformat(str:String) -> String {
+    public static func countNumChangeformat(str:String) -> String {
         /// 是否是整数
-        if !String.isPurnInt(string: str) {
+        if !String.isPurnFloat(string: str) {
            return str
         }
         
         //原始值
-        let number = NSNumber(value: Int64(str)!)
+        let number = NSNumber(value: Double(str)!)
         //创建一个NumberFormatter对象
         let numberFormatter = NumberFormatter()
-        numberFormatter.positiveFormat = "###,###" //设置格式
+        numberFormatter.positiveFormat = "###,###.##" //设置格式
         //格式化
         let format = numberFormatter.string(from: number)
         return format ?? str
@@ -627,8 +627,7 @@ extension String {
 extension Float {
  
     /// 小数点后如果只是0，显示整数，如果不是，显示原来的值
- 
-    var cleanZero : String {
+    public var cleanZero : String {
         return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(format: "%.2f", self)
     }
 }
@@ -636,8 +635,7 @@ extension Float {
 extension Double {
  
     /// 小数点后如果只是0，显示整数，如果不是，显示原来的值
- 
-    var cleanZero : String {
+    public var cleanZero : String {
         return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(format: "%.2f", self)
     }
 }
