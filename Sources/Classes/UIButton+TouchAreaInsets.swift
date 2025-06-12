@@ -5,7 +5,7 @@
 //  Created by LinChengRain on 11/10/2020.
 //  Copyright (c) 2020 LinChengRain. All rights reserved.
 //
-
+#if canImport(UIKit)
 import UIKit
 
 private var lcr_touchAreaEdgeInsets: UIEdgeInsets = .zero
@@ -42,3 +42,4 @@ extension UIButton {
         return hitFrame.contains(point)
     }
 }
+#endif

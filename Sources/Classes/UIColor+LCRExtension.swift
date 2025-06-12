@@ -5,7 +5,7 @@
 //  Created by LinChengRain on 11/10/2020.
 //  Copyright (c) 2020 LinChengRain. All rights reserved.
 //
-
+#if canImport(UIKit)
 import UIKit
 
 extension UIColor {
@@ -50,6 +50,6 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
 }
-
+#endif
 
 

@@ -5,7 +5,7 @@
 //  Created by LinChengRain on 11/10/2020.
 //  Copyright (c) 2020 LinChengRain. All rights reserved.
 //
-
+#if canImport(UIKit)
 import UIKit
 
 extension NSObject {
@@ -181,3 +181,4 @@ extension NSObject {
         return attrString
     }
 }
+#endif

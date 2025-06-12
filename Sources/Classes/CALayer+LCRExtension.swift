@@ -5,7 +5,7 @@
 //  Created by LinChengRain on 11/10/2020.
 //  Copyright (c) 2020 LinChengRain. All rights reserved.
 //
-
+#if canImport(UIKit)
 import UIKit
 
 private let radarAnimation = "radarAnimation"
@@ -59,3 +59,4 @@ extension CALayer {
         return replicator
     }
 }
+#endif

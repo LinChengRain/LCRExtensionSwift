@@ -6,6 +6,7 @@
 //  Copyright (c) 2020 LinChengRain. All rights reserved.
 //
 
+#if canImport(UIKit)
 import UIKit
 import WebKit
 extension UIViewController {
@@ -320,3 +321,4 @@ extension UIViewController {
         return UIViewController.topViewController(vc)
     }
 }
+#endif

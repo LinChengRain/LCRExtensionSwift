@@ -5,7 +5,7 @@
 //  Created by LinChengRain on 11/10/2020.
 //  Copyright (c) 2020 LinChengRain. All rights reserved.
 //
-
+#if canImport(UIKit)
 import UIKit
 import CommonCrypto
 
@@ -639,3 +639,4 @@ extension Double {
         return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(format: "%.2f", self)
     }
 }
+#endif

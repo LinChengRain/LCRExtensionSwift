@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LCRExtensionSwift'
-  s.version          = '0.1.13'
+  s.version          = '0.1.14'
   s.summary          = 'A short description of LCRExtensionSwift.'
 
 # This description is used to generate tags and improve search results.
@@ -28,11 +28,11 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/LinChengRain/LCRExtensionSwift.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.source_files = 'LCRExtensionSwift/Classes/**/*'
+  s.source_files = 'Sources/Classes/**/*'
   
   s.ios.deployment_target = '10.0'  
   s.swift_versions = ['5.0','5.1','5.2']
-  s.platform = :ios,'10.0'
+  s.platform = :ios,'12.0'
   
   # s.resource_bundles = {
   #   'LCRExtensionSwift' => ['LCRExtensionSwift/Assets/*.png']
